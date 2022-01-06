@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta26
+kind: Config
+metadata:
+  name: test-skaffold
+build:
+  artifacts:
+  - image: my-repo/test-skaffold # TODO : replace with image
+  local: {}
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml

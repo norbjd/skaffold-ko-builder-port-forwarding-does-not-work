@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-skaffold
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-skaffold
+  template:
+    metadata:
+      labels:
+        app: test-skaffold
+    spec:
+      containers:
+        - image: ko://test-skaffold
+          name: test-skaffold
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+      restartPolicy: Always
